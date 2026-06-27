@@ -23,10 +23,6 @@ Una potente y moderna aplicación de escritorio para Windows desarrollada en **C
 
 ---
 
-## Captura de Pantalla del Software
-
-
----
 
 ## Tecnologías Utilizadas
 
@@ -64,4 +60,12 @@ Una potente y moderna aplicación de escritorio para Windows desarrollada en **C
 
 4. **Compilar y Ejecutar**:
    Compila el proyecto en modo `Debug` o `Release` y ejecútalo.
+
+---
+
+## Autor 👤
+
+Este proyecto fue desarrollado por **[Luis Alberto Cruz Orellana](https://github.com/lcrz)**.
+Puedes ver más de mi trabajo y contribuir al proyecto visitando mi perfil en GitHub: [@lcrz](https://github.com/lcrz).
+
 
