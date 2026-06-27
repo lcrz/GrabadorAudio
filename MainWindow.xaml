@@ -430,6 +430,22 @@
 
                 <!-- Controles de la Ventana (macOS style traffic lights) -->
                 <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,15,0">
+                    <!-- Acerca de -->
+                    <Button Width="14" Height="14" Margin="0,0,12,0" Click="AboutButton_Click" Cursor="Hand" ToolTip="Acerca de">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Grid>
+                                    <Ellipse x:Name="circle" Fill="Transparent"/>
+                                    <Path x:Name="icon" Data="M11,9H13V7H11M12,20C7.58,20 4,16.42 4,12C4,7.58 7.58,4 12,4C16.42,4 20,7.58 20,12C20,16.42 16.42,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z" Fill="#a1a1aa" Stretch="Uniform"/>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="icon" Property="Fill" Value="#fafafa"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
                     <!-- Configuración -->
                     <Button Width="14" Height="14" Margin="0,0,12,0" Click="SettingsButton_Click" Cursor="Hand" ToolTip="Configuración">
                         <Button.Template>

@@ -1,0 +1,80 @@
+<Window x:Class="GrabadorAudio.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Acerca de Grabador de Audio Pro" Height="320" Width="400"
+        WindowStartupLocation="CenterOwner"
+        WindowStyle="None" AllowsTransparency="True" Background="Transparent"
+        ResizeMode="NoResize" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+
+    <!-- Contenedor Principal Redondeado con Sombra -->
+    <Border CornerRadius="12" Background="#18181b" BorderBrush="#27272a" BorderThickness="1.5">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="15" Color="Black" Opacity="0.5" Direction="270" ShadowDepth="3"/>
+        </Border.Effect>
+
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Título y Logotipo -->
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,15">
+                <Path Data="M12,2A3,3 0 0,0 9,5V11A3,3 0 0,0 12,14A3,3 0 0,0 15,11V5A3,3 0 0,0 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" 
+                      Fill="#6366f1" Stretch="Uniform" Width="28" Height="28" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                <TextBlock Text="Grabador de Audio Pro" Foreground="#fafafa" FontSize="20" FontWeight="Bold" VerticalAlignment="Center"/>
+            </StackPanel>
+
+            <!-- Versión -->
+            <TextBlock Grid.Row="1" Text="Versión 1.0.0" Foreground="#71717a" FontSize="12" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+            <!-- Detalles del Autor -->
+            <StackPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Text="Autor:" Foreground="#a1a1aa" FontSize="13" HorizontalAlignment="Center" Margin="0,0,0,5"/>
+                <TextBlock Text="Luis Alberto Cruz Orellana" Foreground="#ffffff" FontSize="16" FontWeight="SemiBold" HorizontalAlignment="Center" Margin="0,0,0,15"/>
+                
+                <!-- Link a GitHub -->
+                <Button Content="Ver Perfil de GitHub" Click="GitHubLink_Click" Cursor="Hand"
+                        Background="#27272a" Foreground="#6366f1" FontWeight="Medium" BorderBrush="#3f3f46" BorderThickness="1" 
+                        Padding="15,6" HorizontalAlignment="Center">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="6"/>
+                        </Style>
+                    </Button.Resources>
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#3f3f46"/>
+                                    <Setter Property="Foreground" Value="#818cf8"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </StackPanel>
+
+            <!-- Botón de Cerrar -->
+            <Button Grid.Row="3" Content="Cerrar" Click="CloseButton_Click" Cursor="Hand"
+                    Background="#ef4444" Foreground="White" BorderThickness="0" Padding="20,8" FontWeight="SemiBold" HorizontalAlignment="Right">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="6"/>
+                    </Style>
+                </Button.Resources>
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#dc2626"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Grid>
+    </Border>
+</Window>

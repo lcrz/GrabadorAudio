@@ -503,6 +503,13 @@ namespace GrabadorAudio
             }
         }
 
+        private void AboutButton_Click(object sender, RoutedEventArgs e)
+        {
+            var aboutWin = new AboutWindow();
+            aboutWin.Owner = this;
+            aboutWin.ShowDialog();
+        }
+
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
         {
             var settingsWin = new SettingsWindow(_appSettings);
