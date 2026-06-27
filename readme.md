@@ -1,22 +1,22 @@
-# GrabadorAudio 🎙️📸
+# GrabadorAudio
 
 Una potente y moderna aplicación de escritorio para Windows desarrollada en **C#** y **WPF** que permite la grabación simultánea de múltiples canales de audio y la captura rápida de pantallas y ventanas activas con teclas de acceso rápido (Hotkeys).
 
 ## Características Principales
 
-### 🎙️ Grabación de Audio Avanzada
+### Grabación de Audio Avanzada
 - **Grabación del Micrófono**: Captura el audio de cualquier micrófono o dispositivo de entrada activo conectado.
 - **Grabación de Sonido del Sistema**: Captura en bucle invertido (Loopback WASAPI) todo lo que se reproduce en tu computadora sin pérdida de calidad.
 - **Canales de Grabación Independientes**: Graba micrófono, audio del sistema o ambos al mismo tiempo.
 - **Monitoreo en Tiempo Real**: Cuenta con barras indicadoras de volumen (Peak Meters) dinámicas para ambas fuentes de audio.
 - **Mezcla y Exportación**: Combina automáticamente ambos canales de audio y exporta el archivo final en formatos populares como MP3 y WAV.
 
-### 📸 Captura de Pantalla Integrada
+### Captura de Pantalla Integrada
 - **Capturas Rápidas**: Toma capturas de pantalla completa o de ventanas activas al instante.
 - **Configuración de Hotkeys**: Atajos globales configurables (por defecto: `Ctrl + Shift + S`) que funcionan incluso si la aplicación está en segundo plano o minimizada.
 - **Guardado Automático**: Exporta las capturas automáticamente con marcas de tiempo legibles y etiquetas a la carpeta que desees.
 
-### ⚙️ Gestión de Preferencias
+### Gestión de Preferencias
 - Panel de configuración dedicado para la selección de dispositivos de entrada predeterminados.
 - Elección libre del directorio destino para las grabaciones y capturas de pantalla.
 - Persistencia de configuraciones locales.
