@@ -24,7 +24,7 @@ Una potente y moderna aplicación de escritorio para Windows desarrollada en **C
 ---
 
 ## Captura de Pantalla del Software
-*(Aquí puedes incluir capturas de pantalla de la interfaz gráfica de usuario de GrabadorAudio)*
+
 
 ---
 
@@ -65,8 +65,3 @@ Una potente y moderna aplicación de escritorio para Windows desarrollada en **C
 4. **Compilar y Ejecutar**:
    Compila el proyecto en modo `Debug` o `Release` y ejecútalo.
 
----
-
-## Licencia
-
-Este proyecto está bajo la licencia que decida el autor. Consulta los términos detallados en el repositorio.
