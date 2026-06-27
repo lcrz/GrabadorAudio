@@ -61,3 +61,7 @@ Una potente y moderna aplicación de escritorio para Windows desarrollada en **C
 4. **Compilar y Ejecutar**:
    Compila el proyecto en modo `Debug` o `Release` y ejecútalo.
 
+   ```bash
+    dotnet publish -c Release -r win-x64 --self-contained true
+   ```
+

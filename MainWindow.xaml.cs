@@ -439,6 +439,38 @@ namespace GrabadorAudio
             }
         }
 
+        private async void TranscribeMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is MenuItem menuItem && menuItem.DataContext is RecordingItem selectedItem)
+            {
+                StatusText.Text = $"Preparando transcripción: {selectedItem.Name}...";
+                TranscribeProgressBar.Value = 0;
+                TranscribeProgressBar.Visibility = Visibility.Visible;
+
+                var progress = new Progress<double>(pct =>
+                {
+                    TranscribeProgressBar.Value = pct;
+                    StatusText.Text = $"Transcribiendo: {selectedItem.Name} ({pct:0}%)...";
+                });
+                
+                try
+                {
+                    await TranscriptionService.TranscribeAndDiarizeAsync(selectedItem.Path, progress);
+                    StatusText.Text = "Transcripción completada con éxito.";
+                    MessageBox.Show($"Transcripción guardada como archivo .srt junto al audio original.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error durante la transcripción: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    StatusText.Text = "Error en transcripción.";
+                }
+                finally
+                {
+                    TranscribeProgressBar.Visibility = Visibility.Collapsed;
+                }
+            }
+        }
+
         private void PlaySelectedButton_Click(object sender, RoutedEventArgs e)
         {
             if (RecordingsListBox.SelectedItem is not RecordingItem selectedItem) return;

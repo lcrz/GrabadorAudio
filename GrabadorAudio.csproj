@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
@@ -6,11 +6,59 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <DefaultItemExcludes>$(DefaultItemExcludes);scratch\**</DefaultItemExcludes>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="NAudio" Version="2.3.0" />
+    <PackageReference Include="org.k2fsa.sherpa.onnx" Version="1.13.3" />
     <PackageReference Include="System.Drawing.Common" Version="10.0.8" />
   </ItemGroup>
+
+  <Target Name="CopyDirectMLCustom" AfterTargets="Build;Publish">
+    <!-- Copiar a la carpeta de salida de compilación -->
+    <Copy SourceFiles="c:\proyectos\GrabadorAudio\scratch\sherpa-onnx\build\bin\Release\onnxruntime.dll" 
+          DestinationFolder="$(OutDir)runtimes\win-x64\native" 
+          OverwriteReadOnlyFiles="true" 
+          SkipUnchangedFiles="false" 
+          Condition="Exists('$(OutDir)')" />
+    <Copy SourceFiles="c:\proyectos\GrabadorAudio\scratch\sherpa-onnx\build\bin\Release\sherpa-onnx-c-api.dll" 
+          DestinationFolder="$(OutDir)runtimes\win-x64\native" 
+          OverwriteReadOnlyFiles="true" 
+          SkipUnchangedFiles="false" 
+          Condition="Exists('$(OutDir)')" />
+    <Copy SourceFiles="c:\proyectos\GrabadorAudio\scratch\sherpa-onnx\build\bin\Release\DirectML.dll" 
+          DestinationFolder="$(OutDir)runtimes\win-x64\native" 
+          OverwriteReadOnlyFiles="true" 
+          SkipUnchangedFiles="false" 
+          Condition="Exists('$(OutDir)')" />
+    <Copy SourceFiles="c:\proyectos\GrabadorAudio\scratch\sherpa-onnx\build\bin\Release\DirectML.dll" 
+          DestinationFolder="$(OutDir)" 
+          OverwriteReadOnlyFiles="true" 
+          SkipUnchangedFiles="false" 
+          Condition="Exists('$(OutDir)')" />
+
+    <!-- Copiar a la carpeta de publicación final -->
+    <Copy SourceFiles="c:\proyectos\GrabadorAudio\scratch\sherpa-onnx\build\bin\Release\onnxruntime.dll" 
+          DestinationFolder="$(PublishDir)runtimes\win-x64\native" 
+          OverwriteReadOnlyFiles="true" 
+          SkipUnchangedFiles="false" 
+          Condition="'$(PublishDir)' != '' and Exists('$(PublishDir)')" />
+    <Copy SourceFiles="c:\proyectos\GrabadorAudio\scratch\sherpa-onnx\build\bin\Release\sherpa-onnx-c-api.dll" 
+          DestinationFolder="$(PublishDir)runtimes\win-x64\native" 
+          OverwriteReadOnlyFiles="true" 
+          SkipUnchangedFiles="false" 
+          Condition="'$(PublishDir)' != '' and Exists('$(PublishDir)')" />
+    <Copy SourceFiles="c:\proyectos\GrabadorAudio\scratch\sherpa-onnx\build\bin\Release\DirectML.dll" 
+          DestinationFolder="$(PublishDir)runtimes\win-x64\native" 
+          OverwriteReadOnlyFiles="true" 
+          SkipUnchangedFiles="false" 
+          Condition="'$(PublishDir)' != '' and Exists('$(PublishDir)')" />
+    <Copy SourceFiles="c:\proyectos\GrabadorAudio\scratch\sherpa-onnx\build\bin\Release\DirectML.dll" 
+          DestinationFolder="$(PublishDir)" 
+          OverwriteReadOnlyFiles="true" 
+          SkipUnchangedFiles="false" 
+          Condition="'$(PublishDir)' != '' and Exists('$(PublishDir)')" />
+  </Target>
 
 </Project>

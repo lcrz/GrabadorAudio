@@ -156,6 +156,15 @@
                         <Border x:Name="border" Background="{TemplateBinding Background}" 
                                 CornerRadius="8" BorderThickness="1" BorderBrush="Transparent"
                                 Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
+                            <Border.ContextMenu>
+                                <ContextMenu Background="#1c1c1f" Foreground="#fafafa" BorderBrush="#3f3f46">
+                                    <MenuItem Header="Generar transcripción y diarización (.srt)" Click="TranscribeMenuItem_Click">
+                                        <MenuItem.Icon>
+                                            <Path Data="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20M16,11V13H8V11H16M14,15V17H8V15H14Z" Fill="#a1a1aa" Stretch="Uniform" Width="14" Height="14"/>
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                </ContextMenu>
+                            </Border.ContextMenu>
                             <ContentPresenter/>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -747,8 +756,11 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        <!-- Texto de Estado -->
-                        <TextBlock Grid.Column="0" x:Name="StatusText" Text="Listo para grabar" Foreground="#a1a1aa" FontSize="12" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                        <!-- Texto de Estado y Barra de Progreso -->
+                        <StackPanel Grid.Column="0" VerticalAlignment="Center" Margin="0,0,15,0">
+                            <TextBlock x:Name="StatusText" Text="Listo para grabar" Foreground="#a1a1aa" FontSize="12" TextWrapping="Wrap" Margin="0,0,0,4"/>
+                            <ProgressBar x:Name="TranscribeProgressBar" Height="4" Background="#18181b" Foreground="#6366f1" BorderThickness="0" Minimum="0" Maximum="100" Value="0" Visibility="Collapsed"/>
+                        </StackPanel>
 
                         <!-- Botón Grabar / Pausar -->
                         <Button Grid.Column="1" x:Name="RecordBtn" Style="{StaticResource RecordButton}" Click="RecordBtn_Click">
